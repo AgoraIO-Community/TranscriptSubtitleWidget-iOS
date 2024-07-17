@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/AgoraIO-Community"
   spec.license      = "MIT"
   spec.author       = { "ZYP" => "zhuyuping@shengwang.cn" }
-  spec.source       = { :git => "https://github.com/AgoraIO-Community/LrcView-iOS.git", :tag => '2.0.0.131' }
+  spec.source       = { :git => "https://github.com/AgoraIO-Community/TranscriptionWidget-iOS.git", :tag => '0.0.1' }
   spec.source_files  = ["AgoraTranscriptSubtitle/Class/**/*.{swift,h,m}"]
   spec.public_header_files = "AgoraTranscriptSubtitle/Class/**/*.h"
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'DEFINES_MODULE' => 'YES' }
