@@ -8,13 +8,13 @@
 import Foundation
 
 struct KeyCenter {
-    static let appId: String = <#Your App Id#>
+    static let appId: String = <#appId#>
     
     static let serverEnvs: [ServerEnv] = [
         ServerEnv(name: "rtt server",
-                  serverUrlString: <#Your Server URL#>,
-                  testIp: <#Your Test IP#>,
-                  testPort: <#Your Test Port#>),
+                  serverUrlString: <#serverUrlString#>,
+                  testIp: <#testIp#>,
+                  testPort: <#testPort#>)
     ]
 }
 

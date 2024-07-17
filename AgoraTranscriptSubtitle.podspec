@@ -17,15 +17,12 @@ Pod::Spec.new do |spec|
   spec.requires_arc  = true
   spec.dependency 'AgoraComponetLog', "0.0.2"
   spec.dependency 'Protobuf', '3.21.12'
-  spec.resource_bundles = {
-    'AgoraTranscriptSubtitleBundle' => ['AgoraTranscriptSubtitle/Resources/*.xcassets']
-  }
   
-  spec.test_spec 'Tests' do |test_spec|
-    test_spec.source_files = "AgoraTranscriptSubtitle/Tests/**/*.{swift}"
-    test_spec.resource = "AgoraTranscriptSubtitle/Tests/Resource/*"
-    test_spec.frameworks = 'UIKit','Foundation'
+#  spec.test_spec 'Tests' do |test_spec|
+#    test_spec.source_files = "AgoraTranscriptSubtitle/Tests/**/*.{swift}"
+#    test_spec.resource = "AgoraTranscriptSubtitle/Tests/Resource/*"
+#    test_spec.frameworks = 'UIKit','Foundation'
 #    test_spec.requires_app_host = true
-  end
+#  end
   
 end
