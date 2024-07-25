@@ -34,6 +34,7 @@
 		26779C4B2C3CE769002657E4 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26779C4A2C3CE769002657E4 /* SettingVC.swift */; };
 		26779C4D2C3D1506002657E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26779C4C2C3D1506002657E4 /* Main.storyboard */; };
 		26779C4F2C3D16CD002657E4 /* LanguageSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */; };
+		26C6014E2C4E6746002EBA1D /* dataStreamResults11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */; };
 		26CF33F62C2967650041785C /* dataStreamResults.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33F52C2967650041785C /* dataStreamResults.txt */; };
 		26CF33FA2C2AAD610041785C /* dataStreamResults2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33F92C2AAD610041785C /* dataStreamResults2.txt */; };
 		26CF33FC2C2AD66B0041785C /* dataStreamResults3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */; };
@@ -88,6 +89,7 @@
 		26779C4A2C3CE769002657E4 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		26779C4C2C3D1506002657E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectedVC.swift; sourceTree = "<group>"; };
+		26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults11.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults11.txt; sourceTree = SOURCE_ROOT; };
 		26CF33F52C2967650041785C /* dataStreamResults.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults.txt; sourceTree = SOURCE_ROOT; };
 		26CF33F92C2AAD610041785C /* dataStreamResults2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults2.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults2.txt; sourceTree = SOURCE_ROOT; };
 		26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults3.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults3.txt; sourceTree = SOURCE_ROOT; };
@@ -249,6 +251,7 @@
 				26547A282C3E3DFE0021D3F8 /* dataStreamResults8.txt */,
 				26547A2A2C3EA8F40021D3F8 /* dataStreamResults9.txt */,
 				26547A2C2C3FA8170021D3F8 /* dataStreamResults10.txt */,
+				26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */,
 				261F281C2BF5A6E1005F5528 /* Log */,
 				B72D488E2828E37A0035802D /* AppDelegate.swift */,
 				B72D48902828E37A0035802D /* SceneDelegate.swift */,
@@ -370,6 +373,7 @@
 				26779C4D2C3D1506002657E4 /* Main.storyboard in Resources */,
 				26CF33F62C2967650041785C /* dataStreamResults.txt in Resources */,
 				B72D489B2828E37C0035802D /* LaunchScreen.storyboard in Resources */,
+				26C6014E2C4E6746002EBA1D /* dataStreamResults11.txt in Resources */,
 				B72D48982828E37C0035802D /* Assets.xcassets in Resources */,
 				26CF33FC2C2AD66B0041785C /* dataStreamResults3.txt in Resources */,
 				26CF33FA2C2AAD610041785C /* dataStreamResults2.txt in Resources */,

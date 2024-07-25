@@ -76,6 +76,10 @@ class TranscriptInfo {
     var duration: Int32 = 0
     var words = [TranscriptWord]()
     var sentenceEndIndex: Int32 = 0
+    
+    var paragraphEnd: Bool {
+        return sentenceEndIndex >= 0
+    }
 }
 
 class TranslateInfo {

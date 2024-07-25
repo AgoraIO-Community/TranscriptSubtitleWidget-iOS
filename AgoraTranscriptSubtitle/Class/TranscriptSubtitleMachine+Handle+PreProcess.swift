@@ -40,10 +40,10 @@ extension TranscriptSubtitleMachine {
     func _handleTranlatePreProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
         let translateWords = message.translateWords
         if let lastOne = infoCache.getLast(uid: uid, with: message.textTs) { /** append */
-            updateTranslateInfo(info: lastOne,
-                                words: translateWords,
-                                duration: message.durationMs,
-                                textTs: message.textTs)
+            updateTranslateInfo_Pre(info: lastOne,
+                                    words: translateWords,
+                                    duration: message.durationMs,
+                                    textTs: message.textTs)
             if debugParam.useFinalTagAsParagraphDistinction {
                 let renderInfo = convertToRenderInfo(info: lastOne, useTranscriptText: showTranscriptContent)
                 invokeUpdate(self, renderInfo: renderInfo)

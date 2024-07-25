@@ -53,6 +53,12 @@ extension ProtobufDeserializer.DataStreamMessage {
 """
     }
     
+    var debug_translateBeautyString: String {
+        return """
+        {"text" : \(trans.map({ $0.jsonString })), lang" : \(trans.first?.lang ?? "nil"),"isFinal" : \(trans.first?.isFinal ?? false), "sentenceEndIndex" : \(sentenceEndIndex)}  textTs:\(textTs)
+"""
+    }
+    
     var words: [SttWord] {
         return wordsArray as! [SttWord]
     }

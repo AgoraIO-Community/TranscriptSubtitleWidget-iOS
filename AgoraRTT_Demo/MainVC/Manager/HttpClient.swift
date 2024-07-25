@@ -6,13 +6,14 @@
 //
 
 import Foundation
-
+import URLRequest_cURL
 
 class HttpClient: NSObject {
     static let logTag = "HttpClient"
     typealias AcquireCompletedBlock = (_ token: String?, _ errorMsg: String?) -> Void
     
     static func acquire(appId: String,
+                        auth: String?,
                         baseUrl: String,
                         instanceId: String,
                         testServerInfo: TestServerInfo?,
@@ -32,6 +33,9 @@ class HttpClient: NSObject {
         request.httpBody = jsonBody
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let auth = auth {
+            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+        }
         request.timeoutInterval = timeoutInterval
         
         let session = URLSession.shared
@@ -58,6 +62,7 @@ class HttpClient: NSObject {
     
     typealias StartCompletedBlock = (_ taskId: String?, _ errorMsg: String?) -> Void
     static func start(appId: String,
+                      auth: String?,
                       baseUrl: String,
                       token: String,
                       targetTranscribeLanguages: [String],
@@ -95,6 +100,9 @@ class HttpClient: NSObject {
         request.httpBody = jsonBody
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let auth = auth {
+            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+        }
         request.timeoutInterval = timeoutInterval
         
         let session = URLSession.shared
@@ -122,6 +130,7 @@ class HttpClient: NSObject {
     
     typealias StopCompletedBlock = (_ errorMsg: String?) -> Void
     static func stop(appId: String,
+                     auth: String?,
                      baseUrl: String,
                      token: String,
                      taskId: String,
@@ -132,6 +141,9 @@ class HttpClient: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let auth = auth {
+            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+        }
         request.timeoutInterval = timeoutInterval
         
         let session = URLSession.shared

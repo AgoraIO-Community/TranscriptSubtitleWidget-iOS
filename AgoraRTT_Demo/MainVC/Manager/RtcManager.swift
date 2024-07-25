@@ -28,7 +28,7 @@ class RtcManager: NSObject {
     
     func initEngine() {
         let config = AgoraRtcEngineConfig()
-        config.appId = KeyCenter.appId
+        config.appId = AppConfig.share.serverEnv.appId
         agoraKit = AgoraRtcEngineKit.sharedEngine(with: config, delegate: self)
     }
     

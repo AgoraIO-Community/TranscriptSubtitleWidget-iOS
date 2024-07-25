@@ -18,11 +18,13 @@ class RttManager: NSObject {
     weak var delegate: RttManagerDelegate?
     
     func requestStartRttRecognize(channelId: String) {
-        let testInfo = HttpClient.TestServerInfo(ip: AppConfig.share.serverEnv.testIp, port: UInt(AppConfig.share.serverEnv.testPort))
+        Log.debug(text: "current env: \(AppConfig.share.serverEnv.name)", tag: logTag)
+        let testInfo: HttpClient.TestServerInfo? = AppConfig.share.serverEnv.testIp.isEmpty ? nil : HttpClient.TestServerInfo(ip: AppConfig.share.serverEnv.testIp, port: UInt(AppConfig.share.serverEnv.testPort))
         let targetTranscribeLanguages = AppConfig.share.transcriptLangs.map({ $0.rawValue })
         let sourceTranslateLanguage = targetTranscribeLanguages.first!
         let targetTranslateLanguages = AppConfig.share.translateLangs.map({ $0.rawValue })
-        HttpClient.acquire(appId: KeyCenter.appId,
+        HttpClient.acquire(appId: AppConfig.share.serverEnv.appId,
+                           auth: AppConfig.share.serverEnv.auth,
                            baseUrl: AppConfig.share.serverEnv.serverUrlString,
                            instanceId: channelId,
                            testServerInfo: testInfo) { [weak self](token, errorMsg) in
@@ -39,7 +41,8 @@ class RttManager: NSObject {
             let rtcConfig = HttpClient.RtcConfig(channelName: channelId,
                                                  subBotUid: "998",
                                                  pubBotUid: "999")
-            HttpClient.start(appId: KeyCenter.appId,
+            HttpClient.start(appId: AppConfig.share.serverEnv.appId,
+                             auth: AppConfig.share.serverEnv.auth,
                              baseUrl: AppConfig.share.serverEnv.serverUrlString,
                              token: token!,
                              targetTranscribeLanguages: targetTranscribeLanguages,
@@ -64,7 +67,8 @@ class RttManager: NSObject {
     }
     
     func requestStopRttRecognize(token: String, taskId: String) {
-        HttpClient.stop(appId: KeyCenter.appId,
+        HttpClient.stop(appId: AppConfig.share.serverEnv.appId,
+                        auth: AppConfig.share.serverEnv.auth,
                         baseUrl: AppConfig.share.serverEnv.serverUrlString,
                         token: token,
                         taskId: taskId,

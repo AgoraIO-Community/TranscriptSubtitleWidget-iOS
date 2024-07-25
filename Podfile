@@ -12,6 +12,7 @@ target 'AgoraRTT_Demo' do
   # Progress
   pod 'SVProgressHUD'
   pod 'AgoraComponetLog'
+  pod 'URLRequest-cURL'
   pod 'AgoraTranscriptSubtitle', :path => './AgoraTranscriptSubtitle.podspec', :testspecs => ['Tests']
 end
 

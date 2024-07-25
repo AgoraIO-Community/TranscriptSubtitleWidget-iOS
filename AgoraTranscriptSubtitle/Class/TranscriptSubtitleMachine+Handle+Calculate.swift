@@ -45,7 +45,7 @@ extension TranscriptSubtitleMachine {
                                       translateRenderInfos: translateRenderInfos)
     }
     
-    func updateTranslateInfo(info: Info,
+    func updateTranslateInfo_Pre(info: Info,
                              words: [TranslateWord],
                              duration: Int32,
                              textTs: Int64) {
@@ -63,6 +63,96 @@ extension TranscriptSubtitleMachine {
             translateInfo.words = words
             info.translateInfos.append(translateInfo)
         }
+    }
+    
+    func updateTranslateInfo_Post(intermediateInfo: Info,
+                              willMergeInfos: [Info]) {
+        /// collect all TranslateWord
+        var translateWordDict = [String : [TranslateWord]]()
+        for willMergeInfo in willMergeInfos {
+            for translateInfo in willMergeInfo.translateInfos {
+                if let lang = translateInfo.words.first?.lang {
+                    translateWordDict[lang] = (translateWordDict[lang] ?? []) + translateInfo.words
+                }
+            }
+        }
         
+        /// update intermediateInfo
+        for (lang, words) in translateWordDict {
+            if let translateInfo = intermediateInfo.translateInfos.first(where: { $0.words.lang! == lang }) {
+                translateInfo.words = words
+            }
+            else {
+                let translateInfo = TranslateInfo()
+                translateInfo.words = words
+                intermediateInfo.translateInfos.append(translateInfo)
+            }
+        }
+    }
+    
+    /// find infos which need to merge, in tranlsate message's textTs
+    static func searchTranslateMergeInfos(infos: [Info], textTs: Int64) -> [Info] {
+        let allReversedInfos = infos.reversed()
+        
+        var willMergeInfos = [Info]()
+        var isMatchTranscriptTime = false
+        for (index, info) in allReversedInfos.enumerated() {
+            if info.transcriptInfo.paragraphEnd {
+                if isMatchTranscriptTime {
+                    break
+                }
+                
+                /// reset
+                isMatchTranscriptTime = false
+                willMergeInfos = [Info]()
+            }
+            
+            willMergeInfos.append(info)
+            if textTs >= info.transcriptInfo.startMs, textTs <= info.transcriptInfo.textTs {
+                isMatchTranscriptTime = true
+            }
+            
+            if index == allReversedInfos.count - 1 { /// 遍历到最后一个
+                if isMatchTranscriptTime {
+                    break
+                }
+                
+                /// reset
+                isMatchTranscriptTime = false
+                willMergeInfos = [Info]()
+            }
+        }
+        
+        willMergeInfos = willMergeInfos.reversed()
+        return willMergeInfos
+    }
+    
+    static func searchLastTranscriptMergeInfos(infos: [Info]) -> [Info] {
+        var allReversedInfos = infos.reversed()
+        var willMergeInfos = [Info]()
+        
+        for (index, info) in allReversedInfos.enumerated() {
+            if index == 0, info.transcriptInfo.paragraphEnd {
+                willMergeInfos.append(info)
+                continue
+            }
+            
+            if index == 0, !info.transcriptInfo.paragraphEnd {
+                willMergeInfos.append(info)
+                continue
+            }
+            
+            if index != 0, info.transcriptInfo.paragraphEnd {
+                break
+            }
+            
+            if index != 0, !info.transcriptInfo.paragraphEnd {
+                willMergeInfos.append(info)
+                continue
+            }
+        }
+        
+        willMergeInfos = willMergeInfos.reversed()
+        return willMergeInfos
     }
 }

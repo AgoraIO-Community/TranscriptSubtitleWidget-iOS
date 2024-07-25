@@ -32,6 +32,10 @@ extension TranscriptSubtitleMachine {
                 return
             }
             
+            if debugParam.dump_deserialize {
+                Log.debug(text: "[translateBeautyString]:\(message.debug_translateBeautyString)", tag: logTag)
+            }
+            
             _handleTranlatePreProcess(message: message, uid: uid)
             
             if !debugParam.useFinalTagAsParagraphDistinction {

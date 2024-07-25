@@ -1,17 +1,15 @@
 //
-//  DataStreamFileFetch.swift
-//  AgoraTranscriptSubtitle-Unit-Tests
+//  FileReader.swift
+//  AgoraRTT_Demo
 //
-//  Created by ZYP on 2024/6/19.
+//  Created by ZYP on 2024/7/12.
 //
 
 import Foundation
-@testable import AgoraTranscriptSubtitle
 
-class DataStreamFileFetch {
-    
+class FileReader {
     static func fetch(fileName: String) -> [Data] {
-        let path = Bundle.current.path(forResource: fileName, ofType: nil)!
+        let path = Bundle.main.path(forResource: fileName, ofType: nil)!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let string = String(data: data, encoding: .utf8)!
         
@@ -46,14 +44,6 @@ class DataStreamFileFetch {
                 .map({ Data(base64Encoded: $0)! })
         }
     }
-    
-    static func printJsonString(fileName: String) {
-        let datas = DataStreamFileFetch.fetch(fileName: fileName)
-        let deserializer = ProtobufDeserializer()
-        /// 打印文件中所有数据
-        let array = datas.map({ deserializer.deserialize(data: $0)!.dict })
-        let data = try! JSONSerialization.data(withJSONObject: array, options: .init(rawValue: 0))
-        let js = String(data: data, encoding: .utf8) ?? "nil"
-        print(js)
-    }
 }
+
+

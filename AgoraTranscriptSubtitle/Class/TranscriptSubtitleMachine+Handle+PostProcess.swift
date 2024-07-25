@@ -16,24 +16,7 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
         var intermediateInfos = intermediateInfoCache.getAllInfo(uid: uid)
         if let lastOne = intermediateInfos.last, lastOne.transcriptInfo.sentenceEndIndex < 0 { /** append **/
             let infos = infoCache.getAllInfo(uid: uid)
-            var willMergeInfos = [Info]()
-            
-            if infos.last!.transcriptInfo.sentenceEndIndex >= 0 { /** last is T **/
-                willMergeInfos.append(infos.last!)
-            }
-            else { /** last is F **/
-                for info in infos.reversed() {
-                    if info.transcriptInfo.sentenceEndIndex >= 0 {
-                        break
-                    }
-                    else {
-                        willMergeInfos.append(info)
-                    }
-                }
-            }
-            
-            willMergeInfos = willMergeInfos.reversed()
-            
+            let willMergeInfos = TranscriptSubtitleMachine.searchLastTranscriptMergeInfos(infos: infos)
             lastOne.transcriptInfo.words = willMergeInfos.map({ $0.transcriptInfo.words }).flatMap({ $0 })
             lastOne.transcriptInfo.textTs = message.textTs
             lastOne.transcriptInfo.sentenceEndIndex = message.sentenceEndIndex
@@ -59,13 +42,14 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
     }
     
     func _handleTranslatePostProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
+        
         let words = (message.transArray as! [SttTranslation]).map({ TranslateWord(sttTranslation: $0) })
-        if let lastOne = intermediateInfoCache.getLast(uid: uid, with: message.textTs) { /** append */
-            updateTranslateInfo(info: lastOne,
-                                words: words,
-                                duration: message.durationMs,
-                                textTs: message.textTs)
-            let renderInfo = convertToRenderInfo(info: lastOne, useTranscriptText: showTranscriptContent)
+        
+        if let specificOne = intermediateInfoCache.getLast(uid: uid, with: message.textTs) { /** append */
+            let infos = infoCache.getAllInfo(uid: uid)
+            var willMergeInfos = TranscriptSubtitleMachine.searchTranslateMergeInfos(infos: infos, textTs: message.textTs)
+            updateTranslateInfo_Post(intermediateInfo: specificOne, willMergeInfos: willMergeInfos)
+            let renderInfo = convertToRenderInfo(info: specificOne, useTranscriptText: showTranscriptContent)
             invokeUpdate(self, renderInfo: renderInfo)
             return
         }
