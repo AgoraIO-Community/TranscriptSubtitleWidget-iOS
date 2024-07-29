@@ -29,9 +29,11 @@ class MainVC: UIViewController {
         
         mainView.rttView.showTranscriptContent = true
         
+        let useFinalTagAsParagraphDistinction = AppConfig.share.serverEnv.name.contains("小天才")
+        
         mainView.rttView.debugParam = DebugParam(dump_input: true,
                                                  dump_deserialize: true,
-                                                 useFinalTagAsParagraphDistinction: false,
+                                                 useFinalTagAsParagraphDistinction: useFinalTagAsParagraphDistinction,
                                                  showTranslateContent: true)
         if useReplayTest {
             debug_replay()
