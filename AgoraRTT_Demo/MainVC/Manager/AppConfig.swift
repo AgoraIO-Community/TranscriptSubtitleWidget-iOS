@@ -69,7 +69,7 @@ class AppConfig {
     }
 }
 
-class ServerEnv {
+class ServerEnv: Codable {
     var name: String
     var serverUrlString: String
     var testIp: String

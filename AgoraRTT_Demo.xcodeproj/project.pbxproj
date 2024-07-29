@@ -35,6 +35,8 @@
 		26779C4D2C3D1506002657E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26779C4C2C3D1506002657E4 /* Main.storyboard */; };
 		26779C4F2C3D16CD002657E4 /* LanguageSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */; };
 		26C6014E2C4E6746002EBA1D /* dataStreamResults11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */; };
+		26C601582C524EBF002EBA1D /* AddEnvVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C601572C524EBF002EBA1D /* AddEnvVC.swift */; };
+		26C6015A2C52582D002EBA1D /* EnvLocalSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */; };
 		26CF33F62C2967650041785C /* dataStreamResults.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33F52C2967650041785C /* dataStreamResults.txt */; };
 		26CF33FA2C2AAD610041785C /* dataStreamResults2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33F92C2AAD610041785C /* dataStreamResults2.txt */; };
 		26CF33FC2C2AD66B0041785C /* dataStreamResults3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */; };
@@ -90,6 +92,8 @@
 		26779C4C2C3D1506002657E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectedVC.swift; sourceTree = "<group>"; };
 		26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults11.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults11.txt; sourceTree = SOURCE_ROOT; };
+		26C601572C524EBF002EBA1D /* AddEnvVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvVC.swift; sourceTree = "<group>"; };
+		26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvLocalSaveManager.swift; sourceTree = "<group>"; };
 		26CF33F52C2967650041785C /* dataStreamResults.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults.txt; sourceTree = SOURCE_ROOT; };
 		26CF33F92C2AAD610041785C /* dataStreamResults2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults2.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults2.txt; sourceTree = SOURCE_ROOT; };
 		26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults3.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults3.txt; sourceTree = SOURCE_ROOT; };
@@ -165,6 +169,7 @@
 				26779C4A2C3CE769002657E4 /* SettingVC.swift */,
 				26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */,
 				26547A202C3D3CDC0021D3F8 /* ServerEnvSelectedVC.swift */,
+				26C601572C524EBF002EBA1D /* AddEnvVC.swift */,
 				26547A242C3D50460021D3F8 /* TextShowVC.swift */,
 				2640ED352C41287C00506068 /* ObjectiveCCodeVC.h */,
 				2640ED362C41287C00506068 /* ObjectiveCCodeVC.m */,
@@ -205,6 +210,7 @@
 				260893F22C257975004A8D1A /* RtcManager.swift */,
 				260893F42C25817D004A8D1A /* RttManager.swift */,
 				260893D32C252AAA004A8D1A /* HttpClient.swift */,
+				26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C6015A2C52582D002EBA1D /* EnvLocalSaveManager.swift in Sources */,
 				260893ED2C256B4D004A8D1A /* MainView.swift in Sources */,
 				26779C4F2C3D16CD002657E4 /* LanguageSelectedVC.swift in Sources */,
 				260893E62C2557B3004A8D1A /* KeyCenter.swift in Sources */,
@@ -488,6 +495,7 @@
 				260893F52C25817D004A8D1A /* RttManager.swift in Sources */,
 				260893EB2C256B32004A8D1A /* MainVC.swift in Sources */,
 				2640ED312C410B2400506068 /* MainVC+Info.swift in Sources */,
+				26C601582C524EBF002EBA1D /* AddEnvVC.swift in Sources */,
 				2640ED2D2C410A3E00506068 /* FileReader.swift in Sources */,
 				2640ED372C41287C00506068 /* ObjectiveCCodeVC.m in Sources */,
 				260893EF2C256EEB004A8D1A /* EntryVC.swift in Sources */,
