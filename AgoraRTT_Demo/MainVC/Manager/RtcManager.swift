@@ -22,8 +22,8 @@ class RtcManager: NSObject {
     weak var delegate: RtcManagerDelegate?
     
     deinit {
+        leaveChannel()
         Log.info(text: "deinit", tag: logTag)
-        agoraKit.leaveChannel()
     }
     
     func initEngine() {
@@ -42,11 +42,14 @@ class RtcManager: NSObject {
                                        channelId: channelId,
                                        uid: uid,
                                        mediaOptions: option)
-        print("joinChannel ret \(ret)")
+        Log.info(text: "joinChannel ret \(ret), channelId:\(channelId)", tag: logTag)
     }
     
     func leaveChannel() {
-        agoraKit.leaveChannel()
+        agoraKit.leaveChannel({_ in
+            Log.info(text: "leaveChannel success", tag: "RtcManager")
+            AgoraRtcEngineKit.destroy()
+        })
     }
     
 }
@@ -56,6 +59,7 @@ extension RtcManager: AgoraRtcEngineDelegate {
                    didJoinChannel channel: String,
                    withUid uid: UInt,
                    elapsed: Int) {
+        Log.info(text: "didJoinChannel withUid \(uid)", tag: logTag)
         delegate?.rtcManagerOnJoinedChannel(self)
     }
     
@@ -65,7 +69,6 @@ extension RtcManager: AgoraRtcEngineDelegate {
     
     func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinedOfUid uid: UInt, elapsed: Int) {
         Log.info(text: "didJoinedOfUid \(uid)", tag: logTag)
-        
     }
     
     func rtcEngine(_ engine: AgoraRtcEngineKit,

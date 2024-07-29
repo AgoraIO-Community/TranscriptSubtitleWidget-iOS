@@ -19,7 +19,7 @@ class HttpClient: NSObject {
                         testServerInfo: TestServerInfo?,
                         timeoutInterval: TimeInterval = 60,
                         completed: @escaping AcquireCompletedBlock) {
-        let url = URL(string: baseUrl + "/v1/projects/" + appId + "/rtsc/speech-to-text/builderTokens")!
+        let url = URL(string: baseUrl + "/projects/" + appId + "/rtsc/speech-to-text/builderTokens")!
         
         var bodyDict : [String : Any] = ["instanceId" : instanceId,
                                          "devicePlatform" : "iOS"]
@@ -72,7 +72,7 @@ class HttpClient: NSObject {
                       testServerInfo: TestServerInfo?,
                       timeoutInterval: TimeInterval = 60,
                       completed: @escaping StartCompletedBlock) {
-        let urlString = baseUrl + "/v1/projects/" + appId + "/rtsc/speech-to-text/tasks" + "?builderToken=" + token
+        let urlString = baseUrl + "/projects/" + appId + "/rtsc/speech-to-text/tasks" + "?builderToken=" + token
         let url = URL(string: urlString)!
         
         let bodyDict: [String: Any] = [
@@ -136,7 +136,7 @@ class HttpClient: NSObject {
                      taskId: String,
                      timeoutInterval: TimeInterval = 60,
                      completed: @escaping StopCompletedBlock) {
-        let urlString = baseUrl + "/v1/projects/" + appId + "/rtsc/speech-to-text/tasks/\(taskId)" + "?builderToken=" + token
+        let urlString = baseUrl + "/projects/" + appId + "/rtsc/speech-to-text/tasks/\(taskId)" + "?builderToken=" + token
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
