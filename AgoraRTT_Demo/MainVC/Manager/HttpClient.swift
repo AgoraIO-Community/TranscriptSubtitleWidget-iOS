@@ -48,7 +48,7 @@ class HttpClient: NSObject {
                 let respDict = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 guard let token = respDict["tokenName"] as? String else {
-                    Log.errorText(text: "resp: \(respDict)", tag: logTag)
+                    Log.errorText(text: "acquire resp: \(respDict)", tag: logTag)
                     completed(nil, "Failed to acquire token, can not find token in response")
                     return
                 }
