@@ -30,6 +30,22 @@ class RtcManager: NSObject {
         let config = AgoraRtcEngineConfig()
         config.appId = AppConfig.share.serverEnv.appId
         agoraKit = AgoraRtcEngineKit.sharedEngine(with: config, delegate: self)
+        resetRtcConfig()
+    }
+    
+    private func resetRtcConfig() {
+        self.agoraKit.setChannelProfile(.liveBroadcasting)
+        self.agoraKit.setAudioProfile(.musicHighQualityStereo)
+        self.agoraKit.setAudioScenario(.gameStreaming)
+        self.agoraKit.enableAudio()
+        self.agoraKit.enableVideo()
+        self.agoraKit.enableLocalVideo(false)
+        self.agoraKit.enableLocalAudio(false)
+        self.agoraKit.adjustRecordingSignalVolume(100)
+        self.agoraKit.adjustAudioMixingPublishVolume(0)
+        self.agoraKit.setAudioOptionParams("{\"adm_mix_with_others\":false}")
+        self.agoraKit.setParameters("{\"che.audio.nonmixable.option\":true}")
+        self.agoraKit.setParameters("{\"rtc.debug.enable\": true}")
     }
     
     func joinChannel(channelId: String, uid: UInt, isHost: Bool) {
