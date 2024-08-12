@@ -104,6 +104,7 @@ class HttpClient: NSObject {
             request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
         }
         request.timeoutInterval = timeoutInterval
+        Log.debug(text: "\(request.cURL)", tag: "curl")
         
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in

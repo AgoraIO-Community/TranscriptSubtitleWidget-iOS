@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AgoraComponetLog
 
 /// The view for displaying transcript and translation subtitles.
 @objc public class TranscriptSubtitleView: UIView {
@@ -32,7 +33,7 @@ import UIKit
     /// - Parameter frame: The frame rectangle for the view, measured in points.
     /// - Parameter loggers: The loggers used to log the debug information.
     /// - Returns: An initialized view object.
-    @objc public convenience init(frame: CGRect, loggers: [ILogger] = [FileLogger(), ConsoleLogger()]) {
+    @objc public convenience init(frame: CGRect, loggers: [AgoraComponetLogger] = [AgoraComponetConsoleLogger(domainName: "ATS"), AgoraComponetFileLogger(logFilePath: nil, filePrefixName: "agora.AgoraTranscriptSubtitle", maxFileSizeOfBytes: 1024 * 1024 * 1, maxFileCount: 4, domainName: "ATS", internalLogSaveInFile: true)]) {
         Log.setLoggers(loggers: loggers)
         self.init(frame: frame)
     }

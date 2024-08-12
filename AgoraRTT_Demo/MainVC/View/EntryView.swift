@@ -9,6 +9,7 @@ import UIKit
 
 protocol EntryViewDelegate: NSObjectProtocol {
     func onButtonAction(action: EntryView.Action, channelName: String)
+    func onVocsBtnValueChange(value: Bool)
 }
 
 class EntryView: UIView {
@@ -44,6 +45,7 @@ class EntryView: UIView {
     }()
     
     let settingLabel = UILabel()
+    let vocsSwitchButton = UISwitch()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,11 +62,13 @@ class EntryView: UIView {
         addSubview(joinAudienceButton)
         addSubview(textField)
         addSubview(settingLabel)
+        addSubview(vocsSwitchButton)
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         joinHostButton.translatesAutoresizingMaskIntoConstraints = false
         joinAudienceButton.translatesAutoresizingMaskIntoConstraints = false
         settingLabel.translatesAutoresizingMaskIntoConstraints = false
+        vocsSwitchButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor, constant: 100),
@@ -84,7 +88,10 @@ class EntryView: UIView {
             
             settingLabel.topAnchor.constraint(equalTo: joinHostButton.bottomAnchor, constant: 30),
             settingLabel.leftAnchor.constraint(equalTo: joinHostButton.leftAnchor, constant: 0),
-            settingLabel.rightAnchor.constraint(equalTo: joinAudienceButton.rightAnchor)
+            settingLabel.rightAnchor.constraint(equalTo: joinAudienceButton.rightAnchor),
+            
+            vocsSwitchButton.topAnchor.constraint(equalTo: settingLabel.bottomAnchor, constant: 10),
+            vocsSwitchButton.leftAnchor.constraint(equalTo: settingLabel.leftAnchor),
         ])
     }
 
@@ -92,6 +99,7 @@ class EntryView: UIView {
         textField.text = "\(Int.random(in: 0...100))"
         joinHostButton.addTarget(self, action: #selector(onButton(_:)), for: .touchUpInside)
         joinAudienceButton.addTarget(self, action: #selector(onButton(_:)), for: .touchUpInside)
+        vocsSwitchButton.addTarget(self, action: #selector(onSwitch(_:)), for: .valueChanged)
     }
     
     @objc private func onButton(_ sender: UIButton) {
@@ -100,6 +108,10 @@ class EntryView: UIView {
         }
         let action: Action = sender == joinHostButton ? .joinHost : .joinAudience
         delegate?.onButtonAction(action: action, channelName: channelName)
+    }
+    
+    @objc func onSwitch(_ sender: UISwitch) {
+        delegate?.onVocsBtnValueChange(value: sender.isOn)
     }
 }
 

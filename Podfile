@@ -4,12 +4,9 @@ platform :ios, '13.0'
 target 'AgoraRTT_Demo' do
   
   use_frameworks!
-
-  # Agora
+  
   pod 'AgoraRtcEngine_iOS', '4.2.6'
-  # Protobuf
   pod "Protobuf", "3.21.12"
-  # Progress
   pod 'SVProgressHUD'
   pod 'AgoraComponetLog'
   pod 'URLRequest-cURL'

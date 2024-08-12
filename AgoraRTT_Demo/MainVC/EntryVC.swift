@@ -70,10 +70,15 @@ class EntryVC: UIViewController {
         """
         entryView.settingLabel.text = text
         entryView.settingLabel.numberOfLines = 0
+        entryView.vocsSwitchButton.isOn = AppConfig.share.useVoscStagging
     }
 }
 
 extension EntryVC: EntryViewDelegate, SettingVCDelegate {
+    func onVocsBtnValueChange(value: Bool) {
+        AppConfig.share.useVoscStagging = value
+    }
+    
     func onButtonAction(action: EntryView.Action, channelName: String) {
         let isHost = action == .joinHost
         let uid: UInt = action == .joinHost ? 1 : 999
