@@ -38,7 +38,7 @@ class AddEnvVC: UIViewController {
         appIdTextField.borderStyle = .roundedRect
         authTextField.borderStyle = .roundedRect
         nameTextField.placeholder = "name"
-        serverUrlTextField.placeholder = "serverUrl"
+        serverUrlTextField.placeholder = "http://114.236.137.80:16000/v1"
         testIpTextField.placeholder = "testIp"
         testPortTextField.placeholder = "testPort"
         appIdTextField.placeholder = "appId"
