@@ -45,6 +45,7 @@ class EntryView: UIView {
     }()
     
     let settingLabel = UILabel()
+    let vocsLabel = UILabel()
     let vocsSwitchButton = UISwitch()
     
     override init(frame: CGRect) {
@@ -63,12 +64,16 @@ class EntryView: UIView {
         addSubview(textField)
         addSubview(settingLabel)
         addSubview(vocsSwitchButton)
+        addSubview(vocsLabel)
+        
+        vocsLabel.text = "use staging in rtc"
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         joinHostButton.translatesAutoresizingMaskIntoConstraints = false
         joinAudienceButton.translatesAutoresizingMaskIntoConstraints = false
         settingLabel.translatesAutoresizingMaskIntoConstraints = false
         vocsSwitchButton.translatesAutoresizingMaskIntoConstraints = false
+        vocsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor, constant: 100),
@@ -90,8 +95,10 @@ class EntryView: UIView {
             settingLabel.leftAnchor.constraint(equalTo: joinHostButton.leftAnchor, constant: 0),
             settingLabel.rightAnchor.constraint(equalTo: joinAudienceButton.rightAnchor),
             
-            vocsSwitchButton.topAnchor.constraint(equalTo: settingLabel.bottomAnchor, constant: 10),
-            vocsSwitchButton.leftAnchor.constraint(equalTo: settingLabel.leftAnchor),
+            vocsLabel.topAnchor.constraint(equalTo: settingLabel.bottomAnchor, constant: 10),
+            vocsLabel.leftAnchor.constraint(equalTo: settingLabel.leftAnchor),
+            vocsSwitchButton.centerYAnchor.constraint(equalTo: vocsLabel.centerYAnchor),
+            vocsSwitchButton.leftAnchor.constraint(equalTo: vocsLabel.rightAnchor, constant: 10)
         ])
     }
 
