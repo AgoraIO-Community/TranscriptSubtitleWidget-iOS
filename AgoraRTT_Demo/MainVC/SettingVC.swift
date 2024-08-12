@@ -40,6 +40,8 @@ enum AgoraLanguage: String, CaseIterable {
     case Vietnamese = "vi-VN"
     /// 泰国
     case Thai       = "th-TH"
+    /// 俄语
+    case ru         = "ru-RU"
 }
 
 

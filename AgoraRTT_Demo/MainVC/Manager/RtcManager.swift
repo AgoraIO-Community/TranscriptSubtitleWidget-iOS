@@ -30,6 +30,25 @@ class RtcManager: NSObject {
         let config = AgoraRtcEngineConfig()
         config.appId = AppConfig.share.serverEnv.appId
         agoraKit = AgoraRtcEngineKit.sharedEngine(with: config, delegate: self)
+        resetRtcConfig()
+        if AppConfig.share.useVoscStagging {
+            self.agoraKit.setParameters("{\"rtc.vocs_list\":[\"114.236.137.40\"]}")
+        }
+    }
+    
+    private func resetRtcConfig() {
+        self.agoraKit.setChannelProfile(.liveBroadcasting)
+        self.agoraKit.setAudioProfile(.musicHighQualityStereo)
+        self.agoraKit.setAudioScenario(.gameStreaming)
+        self.agoraKit.enableAudio()
+        self.agoraKit.enableVideo()
+        self.agoraKit.enableLocalVideo(false)
+        self.agoraKit.enableLocalAudio(false)
+        self.agoraKit.adjustRecordingSignalVolume(100)
+        self.agoraKit.adjustAudioMixingPublishVolume(0)
+        self.agoraKit.setAudioOptionParams("{\"adm_mix_with_others\":false}")
+        self.agoraKit.setParameters("{\"che.audio.nonmixable.option\":true}")
+        self.agoraKit.setParameters("{\"rtc.debug.enable\": true}")
     }
     
     func joinChannel(channelId: String, uid: UInt, isHost: Bool) {
@@ -64,7 +83,7 @@ extension RtcManager: AgoraRtcEngineDelegate {
     }
     
     func rtcEngine(_ engine: AgoraRtcEngineKit, didOccurError errorCode: AgoraErrorCode) {
-        Log.errorText(text:"didOccurError \(errorCode)", tag: logTag)
+        Log.errorText(text:"didOccurError \(errorCode.rawValue)", tag: logTag)
     }
     
     func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinedOfUid uid: UInt, elapsed: Int) {

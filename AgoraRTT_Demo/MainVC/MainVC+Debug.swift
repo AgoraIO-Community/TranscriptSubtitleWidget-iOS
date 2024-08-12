@@ -10,7 +10,7 @@ import SVProgressHUD
 extension MainVC {
     func debug_replay() {
         DispatchQueue.global().async {
-            let datas = FileReader.fetch(fileName: "dataStreamResults4.txt")
+            let datas = FileReader.fetch(fileName: "dataStreamResults12.txt")
             for (index, data) in datas.enumerated() {
                 DispatchQueue.main.async {
                     self.mainView.rttView.pushMessageData(data: data, uid: 0)

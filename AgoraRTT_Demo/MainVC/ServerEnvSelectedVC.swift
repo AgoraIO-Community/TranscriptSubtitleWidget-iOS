@@ -25,7 +25,7 @@ class ServerEnvSelectedVC: UIViewController {
     }
     
     func setupUI() {
-        addButton.setTitle("Add a custom Env", for: .normal)
+        addButton.setTitle("Add a customized Env", for: .normal)
         addButton.setTitleColor(.blue, for: .normal)
         view.backgroundColor = .white
         view.addSubview(tableview)
