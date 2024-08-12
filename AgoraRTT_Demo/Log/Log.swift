@@ -14,7 +14,7 @@ class Log {
     
     static func setupLogger() {
         let fileLogger = AgoraComponetFileLogger(logFilePath: nil,
-                                                 filePrefixName: nil,
+                                                 filePrefixName: "agora.RTTDemo",
                                                  maxFileSizeOfBytes: 1 * 1024 * 1024,
                                                  maxFileCount: 5,
                                                  domainName: "RTTDemo")

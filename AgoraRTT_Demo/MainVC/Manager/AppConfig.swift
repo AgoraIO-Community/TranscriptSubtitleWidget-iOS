@@ -11,6 +11,7 @@ class AppConfig {
     static let share = AppConfig()
     
     var serverEnv: ServerEnv!
+    var useVoscStagging = false { didSet{ saveUseVoscStagging() } }
     
     var transcriptLangs: [AgoraLanguage] = [.chinese]
     var translateLangs: [AgoraLanguage] = [.english]
@@ -24,6 +25,7 @@ class AppConfig {
     
     init() {
         loadServerEnv()
+        loadUseVoscStagging()
     }
     
     func copyThis() -> AppConfig {
@@ -32,6 +34,16 @@ class AppConfig {
         config.transcriptLangs = transcriptLangs
         config.translateLangs = translateLangs
         return config
+    }
+    
+    /// 把useVoscStagging保存到 userDefaults
+    func saveUseVoscStagging() {
+        UserDefaults.standard.set(useVoscStagging, forKey: "useVoscStagging")
+    }
+    
+    /// 从userDefaults读取useVoscStagging
+    func loadUseVoscStagging() {
+        useVoscStagging = UserDefaults.standard.bool(forKey: "useVoscStagging")
     }
     
     /// 把serverEnv的内容写到info.plist

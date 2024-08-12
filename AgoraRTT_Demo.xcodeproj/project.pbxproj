@@ -34,6 +34,7 @@
 		26779C4B2C3CE769002657E4 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26779C4A2C3CE769002657E4 /* SettingVC.swift */; };
 		26779C4D2C3D1506002657E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26779C4C2C3D1506002657E4 /* Main.storyboard */; };
 		26779C4F2C3D16CD002657E4 /* LanguageSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */; };
+		26A400B42C6216B100F0D63C /* dataStreamResults12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26A400B32C6216B100F0D63C /* dataStreamResults12.txt */; };
 		26C6014E2C4E6746002EBA1D /* dataStreamResults11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */; };
 		26C601582C524EBF002EBA1D /* AddEnvVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C601572C524EBF002EBA1D /* AddEnvVC.swift */; };
 		26C6015A2C52582D002EBA1D /* EnvLocalSaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */; };
@@ -91,6 +92,7 @@
 		26779C4A2C3CE769002657E4 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		26779C4C2C3D1506002657E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		26779C4E2C3D16CD002657E4 /* LanguageSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectedVC.swift; sourceTree = "<group>"; };
+		26A400B32C6216B100F0D63C /* dataStreamResults12.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults12.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults12.txt; sourceTree = SOURCE_ROOT; };
 		26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults11.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults11.txt; sourceTree = SOURCE_ROOT; };
 		26C601572C524EBF002EBA1D /* AddEnvVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvVC.swift; sourceTree = "<group>"; };
 		26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvLocalSaveManager.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				26547A2A2C3EA8F40021D3F8 /* dataStreamResults9.txt */,
 				26547A2C2C3FA8170021D3F8 /* dataStreamResults10.txt */,
 				26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */,
+				26A400B32C6216B100F0D63C /* dataStreamResults12.txt */,
 				261F281C2BF5A6E1005F5528 /* Log */,
 				B72D488E2828E37A0035802D /* AppDelegate.swift */,
 				B72D48902828E37A0035802D /* SceneDelegate.swift */,
@@ -368,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A400B42C6216B100F0D63C /* dataStreamResults12.txt in Resources */,
 				26547A292C3E3DFE0021D3F8 /* dataStreamResults8.txt in Resources */,
 				26547A272C3E310F0021D3F8 /* dataStreamResults7.txt in Resources */,
 				26547A2B2C3EA8F40021D3F8 /* dataStreamResults9.txt in Resources */,
@@ -725,7 +729,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.darkzero.agora.Speech2TextDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -761,7 +765,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.darkzero.agora.Speech2TextDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";

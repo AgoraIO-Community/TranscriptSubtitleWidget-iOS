@@ -8,6 +8,7 @@
 import UIKit
 import SVProgressHUD
 import AgoraTranscriptSubtitle
+import AgoraLyricsScore
 
 class MainVC: UIViewController {
     let mainView = MainView()
