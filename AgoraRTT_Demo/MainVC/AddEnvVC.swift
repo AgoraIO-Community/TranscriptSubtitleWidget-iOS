@@ -20,6 +20,8 @@ class AddEnvVC: UIViewController {
     private let appIdTextField = UITextField()
     private let authTextField = UITextField()
     private let comfirmButton = UIButton()
+    private let useFinalTagAsParagraphDistinctionSwitch = UISwitch()
+    private let useFinalTagAsParagraphDistinctionLabel = UILabel()
     weak var delegate: AddEnvVCDelegate?
     
     override func viewDidLoad() {
@@ -43,9 +45,11 @@ class AddEnvVC: UIViewController {
         testPortTextField.placeholder = "testPort"
         appIdTextField.placeholder = "appId"
         authTextField.placeholder = "auth"
+        useFinalTagAsParagraphDistinctionLabel.text = "兼容 5.x(用isFinal 断句)"
+        useFinalTagAsParagraphDistinctionLabel.textColor = .blue
         testPortTextField.keyboardType = .numberPad
         view.backgroundColor = .white
-        let stackView = UIStackView(arrangedSubviews: [nameTextField, serverUrlTextField, testIpTextField, testPortTextField, appIdTextField, authTextField, comfirmButton])
+        let stackView = UIStackView(arrangedSubviews: [nameTextField, serverUrlTextField, testIpTextField, testPortTextField, appIdTextField, authTextField, comfirmButton, useFinalTagAsParagraphDistinctionSwitch, useFinalTagAsParagraphDistinctionLabel])
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,13 +76,14 @@ class AddEnvVC: UIViewController {
             SVProgressHUD.showError(withStatus: "appId不能为空")
             return
         }
-        
+        let useFinalTagAsParagraphDistinction = useFinalTagAsParagraphDistinctionSwitch.isOn
         let serverEnv = ServerEnv(name: name,
                                   serverUrlString: serverUrl,
                                   testIp: testIpTextField.text ?? "",
                                   testPort: UInt(testPortTextField.text ?? "") ?? 0,
                                   appId: appId,
-                                  auth: authTextField.text)
+                                  auth: authTextField.text,
+                                  useFinalTagAsParagraphDistinction: useFinalTagAsParagraphDistinction)
         delegate?.addEnvVCDidAddEnv(env: serverEnv)
         dismiss(animated: true)
     }

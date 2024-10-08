@@ -60,6 +60,7 @@ class EntryVC: UIViewController {
         let t4 = AppConfig.share.serverEnv.serverUrlString
         let t5 = AppConfig.share.serverEnv.testIp
         let t6 = AppConfig.share.serverEnv.testPort
+        let t7 = AppConfig.share.serverEnv.useFinalTagAsParagraphDistinction
         let text = """
         转写目标语言：\(t1)
         翻译目标语言：\(t2)
@@ -67,6 +68,7 @@ class EntryVC: UIViewController {
         环境地址：\(t4)
         testIp：\(t5)
         testPort：\(t6)
+        使用isFinal断句（兼容5.x协议）：\(t7)
         """
         entryView.settingLabel.text = text
         entryView.settingLabel.numberOfLines = 0
