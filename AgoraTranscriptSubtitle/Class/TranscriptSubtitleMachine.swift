@@ -6,20 +6,33 @@
 //
 
 import UIKit
+import AgoraComponetLog
 
-class TranscriptSubtitleMachine {
+@objcMembers
+@objc(TranscriptSubtitleMachine)
+public final class TranscriptSubtitleMachine: NSObject {
     let logTag = "Machine"
     private let deserializer = ProtobufDeserializer()
     private let queue = DispatchQueue(label: "agora.TranscriptSubtitleMachine.queue")
     var infoCache = InfoCache()
     var intermediateInfoCache = InfoCache()
     var showTranscriptContent: Bool = true
-    weak var delegate: TranscriptSubtitleMachineDelegate?
+    public weak var delegate: TranscriptSubtitleMachineDelegate?
     
     var debugParam = DebugParam()
     weak var debug_intermediateDelegate: DebugMachineIntermediateDelegate?
     
-    func pushMessageData(data: Data, uid: UInt) {
+    @objc public convenience init(loggers: [AgoraComponetLogger]) {
+        self.init()
+        Log.setLoggers(loggers: loggers)
+        Log.info(text: "TranscriptSubtitleMachine init", tag: logTag)
+    }
+    
+    private override init() {
+        super.init()
+    }
+    
+    @objc public func pushMessageData(data: Data, uid: UInt) {
         queue.async { [weak self] in
             guard let self = self else {
                 return
@@ -28,7 +41,7 @@ class TranscriptSubtitleMachine {
         }
     }
     
-    func clear() {
+    @objc public func clear() {
         infoCache.clear()
         intermediateInfoCache.clear()
     }
@@ -48,6 +61,6 @@ class TranscriptSubtitleMachine {
             Log.debug(text: "deserialize:\(message.jsonString)", tag: logTag)
         }
         
-        _handleMessage(message: message, uid: uid)
+        _handleMessage(message: message, uid: message.uid)
     }
 }

@@ -9,10 +9,7 @@ import Foundation
 
 extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
     
-    func _handleTranscriptPostProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
-        if message.splitToTranscriptWords.allText == "你可以做什么？你是谁？" {
-            print("")
-        }
+    func _handleTranscriptPostProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UidType) {
         var intermediateInfos = intermediateInfoCache.getAllInfo(uid: uid)
         if let lastOne = intermediateInfos.last, lastOne.transcriptInfo.sentenceEndIndex < 0 { /** append **/
             let infos = infoCache.getAllInfo(uid: uid)
@@ -20,7 +17,9 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
             lastOne.transcriptInfo.words = willMergeInfos.map({ $0.transcriptInfo.words }).flatMap({ $0 })
             lastOne.transcriptInfo.textTs = message.textTs
             lastOne.transcriptInfo.sentenceEndIndex = message.sentenceEndIndex
-            let renderInfo = convertToRenderInfo(info: lastOne, useTranscriptText: showTranscriptContent)
+            let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                 info: lastOne,
+                                                 useTranscriptText: showTranscriptContent)
             invokeUpdate(self, renderInfo: renderInfo)
         }
         else { /** add **/
@@ -33,7 +32,9 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
             transcriptInfo.words = words
             let info = Info(transcriptInfo: transcriptInfo, translateInfos: [])
             intermediateInfoCache.addInfo(uid: uid, info: info)
-            let renderInfo = convertToRenderInfo(info: info, useTranscriptText: showTranscriptContent)
+            let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                 info: info,
+                                                 useTranscriptText: showTranscriptContent)
             invokeUpdate(self, renderInfo: renderInfo)
         }
         
@@ -41,7 +42,7 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
         debug_intermediateDelegate?.debugMachineIntermediate(self, diduUpdate: intermediateInfos)
     }
     
-    func _handleTranslatePostProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
+    func _handleTranslatePostProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UidType) {
         
         let words = (message.transArray as! [SttTranslation]).map({ TranslateWord(sttTranslation: $0) })
         
@@ -49,7 +50,9 @@ extension TranscriptSubtitleMachine { /** handle message for Paragraph **/
             let infos = infoCache.getAllInfo(uid: uid)
             var willMergeInfos = TranscriptSubtitleMachine.searchTranslateMergeInfos(infos: infos, textTs: message.textTs)
             updateTranslateInfo_Post(intermediateInfo: specificOne, willMergeInfos: willMergeInfos)
-            let renderInfo = convertToRenderInfo(info: specificOne, useTranscriptText: showTranscriptContent)
+            let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                 info: specificOne,
+                                                 useTranscriptText: showTranscriptContent)
             invokeUpdate(self, renderInfo: renderInfo)
             return
         }

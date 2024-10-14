@@ -8,7 +8,7 @@
 import Foundation
 
 extension TranscriptSubtitleMachine {
-    func _handleMessage(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
+    func _handleMessage(message: ProtobufDeserializer.DataStreamMessage, uid: UidType) {
         Log.debug(text: "_handleMessage", tag: logTag)
         guard let type = MessageType(string: message.dataType!) else {
             Log.errorText(text: "unknown message type: \(message.dataType!)", tag: logTag)
