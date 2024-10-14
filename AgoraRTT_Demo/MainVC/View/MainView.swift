@@ -13,7 +13,7 @@ protocol MainViewDelegate: NSObjectProtocol {
 }
 
 class MainView: UIView {
-    let rttView = TranscriptSubtitleView(frame: .zero, loggers: [AgoraComponetDDLogFileLogger()])
+    let rttView = TranscriptSubtitleView(frame: .zero)
     let showAllTransciptButton = UIButton(type: .roundedRect)
     let showAllTranslateButton = UIButton(type: .roundedRect)
     weak var delegate: MainViewDelegate?

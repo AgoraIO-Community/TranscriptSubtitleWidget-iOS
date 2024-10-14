@@ -10,7 +10,6 @@ target 'AgoraRTT_Demo' do
   pod 'SVProgressHUD'
   pod 'AgoraComponetLog', '~> 0.0.3'
   pod 'URLRequest-cURL'
-  pod 'AgoraLyricsScore', '2.1.0-alpha-5'
   pod 'AgoraTranscriptSubtitle', :path => './AgoraTranscriptSubtitle.podspec', :testspecs => ['Tests']
 end
 

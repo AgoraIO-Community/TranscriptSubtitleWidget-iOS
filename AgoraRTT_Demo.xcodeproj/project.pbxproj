@@ -43,6 +43,7 @@
 		26CF33FC2C2AD66B0041785C /* dataStreamResults3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */; };
 		26CF33FE2C2BC23F0041785C /* dataStreamResults4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FD2C2BC23F0041785C /* dataStreamResults4.txt */; };
 		26CF34042C2D6F1F0041785C /* dataStreamResults5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF34032C2D6F1F0041785C /* dataStreamResults5.txt */; };
+		26E6A86A2CB9382100727D61 /* dataStreamResults13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26E6A8692CB9382100727D61 /* dataStreamResults13.txt */; };
 		62D0DD21449124A898354137 /* Pods_AgoraRTT_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC6EAE44B54AD7F5407BE38 /* Pods_AgoraRTT_Demo.framework */; };
 		A65C84B140BCF3F08E698C7F /* Pods_AgoraRTT_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D81377B882D59C18C0CB158 /* Pods_AgoraRTT_DemoTests.framework */; };
 		B72D488F2828E37A0035802D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72D488E2828E37A0035802D /* AppDelegate.swift */; };
@@ -96,11 +97,16 @@
 		26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults11.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults11.txt; sourceTree = SOURCE_ROOT; };
 		26C601572C524EBF002EBA1D /* AddEnvVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvVC.swift; sourceTree = "<group>"; };
 		26C601592C52582D002EBA1D /* EnvLocalSaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvLocalSaveManager.swift; sourceTree = "<group>"; };
+		26CBCD2C2CB6323E00131D40 /* AgoraComponetDDLogFileLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgoraComponetDDLogFileLogger.h; sourceTree = "<group>"; };
+		26CBCD2D2CB6323E00131D40 /* AgoraComponetDDLogFileLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgoraComponetDDLogFileLogger.m; sourceTree = "<group>"; };
 		26CF33F52C2967650041785C /* dataStreamResults.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults.txt; sourceTree = SOURCE_ROOT; };
 		26CF33F92C2AAD610041785C /* dataStreamResults2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults2.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults2.txt; sourceTree = SOURCE_ROOT; };
 		26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults3.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults3.txt; sourceTree = SOURCE_ROOT; };
 		26CF33FD2C2BC23F0041785C /* dataStreamResults4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults4.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults4.txt; sourceTree = SOURCE_ROOT; };
 		26CF34032C2D6F1F0041785C /* dataStreamResults5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults5.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults5.txt; sourceTree = SOURCE_ROOT; };
+		26E6A8692CB9382100727D61 /* dataStreamResults13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults13.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults13.txt; sourceTree = SOURCE_ROOT; };
+		26FDEE852CB6650700B985E9 /* AgoraDDLogFileManagerDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgoraDDLogFileManagerDefault.h; sourceTree = "<group>"; };
+		26FDEE862CB6650700B985E9 /* AgoraDDLogFileManagerDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgoraDDLogFileManagerDefault.m; sourceTree = "<group>"; };
 		7D81377B882D59C18C0CB158 /* Pods_AgoraRTT_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraRTT_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72D488B2828E37A0035802D /* AgoraRTT_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgoraRTT_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72D488E2828E37A0035802D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +181,10 @@
 				26547A242C3D50460021D3F8 /* TextShowVC.swift */,
 				2640ED352C41287C00506068 /* ObjectiveCCodeVC.h */,
 				2640ED362C41287C00506068 /* ObjectiveCCodeVC.m */,
+				26CBCD2C2CB6323E00131D40 /* AgoraComponetDDLogFileLogger.h */,
+				26CBCD2D2CB6323E00131D40 /* AgoraComponetDDLogFileLogger.m */,
+				26FDEE852CB6650700B985E9 /* AgoraDDLogFileManagerDefault.h */,
+				26FDEE862CB6650700B985E9 /* AgoraDDLogFileManagerDefault.m */,
 				2640ED342C41287C00506068 /* AgoraRTT_Demo-Bridging-Header.h */,
 			);
 			path = MainVC;
@@ -261,6 +271,7 @@
 				26547A2C2C3FA8170021D3F8 /* dataStreamResults10.txt */,
 				26C6014D2C4E6746002EBA1D /* dataStreamResults11.txt */,
 				26A400B32C6216B100F0D63C /* dataStreamResults12.txt */,
+				26E6A8692CB9382100727D61 /* dataStreamResults13.txt */,
 				261F281C2BF5A6E1005F5528 /* Log */,
 				B72D488E2828E37A0035802D /* AppDelegate.swift */,
 				B72D48902828E37A0035802D /* SceneDelegate.swift */,
@@ -371,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E6A86A2CB9382100727D61 /* dataStreamResults13.txt in Resources */,
 				26A400B42C6216B100F0D63C /* dataStreamResults12.txt in Resources */,
 				26547A292C3E3DFE0021D3F8 /* dataStreamResults8.txt in Resources */,
 				26547A272C3E310F0021D3F8 /* dataStreamResults7.txt in Resources */,

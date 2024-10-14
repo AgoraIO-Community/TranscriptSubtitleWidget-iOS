@@ -25,16 +25,16 @@
 //                                                                                  maxFileCount:4
 //                                                                                    domainName:@"ATS"];
     
-    AgoraComponetDDLogFileLogger *myFileLogger = [AgoraComponetDDLogFileLogger new];
+//    AgoraComponetDDLogFileLogger *myFileLogger = [AgoraComponetDDLogFileLogger new];
     
 //    AgoraComponetConsoleLogger *consoleLogger = [[AgoraComponetConsoleLogger alloc] initWithDomainName:@"ATS"];
-    _logger = [[AgoraComponetLog alloc] initWithQueueTag:@"agora.testForLog"];
-    [_logger configLoggers:@[myFileLogger]];
-    
-    
-    for (int i = 0; i < 100; i++) {
-        [_logger infoWithText:@"1234" tag:@"logtag"];
-    }
+//    _logger = [[AgoraComponetLog alloc] initWithQueueTag:@"agora.testForLog"];
+//    [_logger configLoggers:@[myFileLogger]];
+//
+//
+//    for (int i = 0; i < 100; i++) {
+//        [_logger infoWithText:@"1234" tag:@"logtag"];
+//    }
     
 //    [_logger infoWithText:@"123" tag:@"logtag"];
     
