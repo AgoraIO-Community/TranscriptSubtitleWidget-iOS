@@ -6,7 +6,7 @@ target 'AgoraRTT_Demo' do
   use_frameworks!
   
   pod 'AgoraRtcEngine_iOS', '4.2.6'
-  pod "Protobuf", "3.21.12"
+  pod "Protobuf", "3.28.2"
   pod 'SVProgressHUD'
   pod 'AgoraComponetLog', '~> 0.0.3'
   pod 'URLRequest-cURL'

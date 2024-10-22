@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.swift_versions = "5.0"
   spec.requires_arc  = true
   spec.dependency 'AgoraComponetLog', "~> 0.0.3"
-  spec.dependency 'Protobuf', '3.21.12'
+  spec.dependency 'Protobuf', '3.28.2'
   
   spec.test_spec 'Tests' do |test_spec|
     test_spec.source_files = "AgoraTranscriptSubtitle/Tests/**/*.{swift}"
