@@ -128,7 +128,7 @@ extension TranscriptSubtitleMachine {
     }
     
     static func searchLastTranscriptMergeInfos(infos: [Info]) -> [Info] {
-        var allReversedInfos = infos.reversed()
+        let allReversedInfos = infos.reversed()
         var willMergeInfos = [Info]()
         
         for (index, info) in allReversedInfos.enumerated() {

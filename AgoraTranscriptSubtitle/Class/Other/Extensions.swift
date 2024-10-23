@@ -9,7 +9,7 @@ import Foundation
 
 extension Bundle {
     static var currentBundle: Bundle {
-        let bundle = Bundle(for: TranscriptSubtitleView.self)
+        let bundle = Bundle(for: TranscriptSubtitleMachine.self)
         return bundle
     }
 }
