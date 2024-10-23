@@ -43,6 +43,13 @@
 		26CF33FC2C2AD66B0041785C /* dataStreamResults3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */; };
 		26CF33FE2C2BC23F0041785C /* dataStreamResults4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF33FD2C2BC23F0041785C /* dataStreamResults4.txt */; };
 		26CF34042C2D6F1F0041785C /* dataStreamResults5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CF34032C2D6F1F0041785C /* dataStreamResults5.txt */; };
+		26E314312CC8EC0E00ABC389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E314302CC8EC0E00ABC389 /* AppDelegate.m */; };
+		26E314342CC8EC0E00ABC389 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E314332CC8EC0E00ABC389 /* SceneDelegate.m */; };
+		26E314372CC8EC0E00ABC389 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E314362CC8EC0E00ABC389 /* ViewController.m */; };
+		26E3143A2CC8EC0E00ABC389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E314382CC8EC0E00ABC389 /* Main.storyboard */; };
+		26E3143C2CC8EC1000ABC389 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E3143B2CC8EC1000ABC389 /* Assets.xcassets */; };
+		26E3143F2CC8EC1000ABC389 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E3143D2CC8EC1000ABC389 /* LaunchScreen.storyboard */; };
+		26E314422CC8EC1000ABC389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E314412CC8EC1000ABC389 /* main.m */; };
 		26E6A86A2CB9382100727D61 /* dataStreamResults13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26E6A8692CB9382100727D61 /* dataStreamResults13.txt */; };
 		62D0DD21449124A898354137 /* Pods_AgoraRTT_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC6EAE44B54AD7F5407BE38 /* Pods_AgoraRTT_Demo.framework */; };
 		A65C84B140BCF3F08E698C7F /* Pods_AgoraRTT_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D81377B882D59C18C0CB158 /* Pods_AgoraRTT_DemoTests.framework */; };
@@ -104,6 +111,18 @@
 		26CF33FB2C2AD66B0041785C /* dataStreamResults3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults3.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults3.txt; sourceTree = SOURCE_ROOT; };
 		26CF33FD2C2BC23F0041785C /* dataStreamResults4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults4.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults4.txt; sourceTree = SOURCE_ROOT; };
 		26CF34032C2D6F1F0041785C /* dataStreamResults5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults5.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults5.txt; sourceTree = SOURCE_ROOT; };
+		26E3142D2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgoraRTT_Demo_Machine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E3142F2CC8EC0E00ABC389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		26E314302CC8EC0E00ABC389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26E314322CC8EC0E00ABC389 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		26E314332CC8EC0E00ABC389 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		26E314352CC8EC0E00ABC389 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		26E314362CC8EC0E00ABC389 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		26E314392CC8EC0E00ABC389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26E3143B2CC8EC1000ABC389 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26E3143E2CC8EC1000ABC389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26E314402CC8EC1000ABC389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E314412CC8EC1000ABC389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26E6A8692CB9382100727D61 /* dataStreamResults13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dataStreamResults13.txt; path = AgoraTranscriptSubtitle/Tests/Resource/dataStreamResults13.txt; sourceTree = SOURCE_ROOT; };
 		26FDEE852CB6650700B985E9 /* AgoraDDLogFileManagerDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgoraDDLogFileManagerDefault.h; sourceTree = "<group>"; };
 		26FDEE862CB6650700B985E9 /* AgoraDDLogFileManagerDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgoraDDLogFileManagerDefault.m; sourceTree = "<group>"; };
@@ -131,6 +150,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A65C84B140BCF3F08E698C7F /* Pods_AgoraRTT_DemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26E3142A2CC8EC0E00ABC389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +253,24 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		26E3142E2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine */ = {
+			isa = PBXGroup;
+			children = (
+				26E3142F2CC8EC0E00ABC389 /* AppDelegate.h */,
+				26E314302CC8EC0E00ABC389 /* AppDelegate.m */,
+				26E314322CC8EC0E00ABC389 /* SceneDelegate.h */,
+				26E314332CC8EC0E00ABC389 /* SceneDelegate.m */,
+				26E314352CC8EC0E00ABC389 /* ViewController.h */,
+				26E314362CC8EC0E00ABC389 /* ViewController.m */,
+				26E314382CC8EC0E00ABC389 /* Main.storyboard */,
+				26E3143B2CC8EC1000ABC389 /* Assets.xcassets */,
+				26E3143D2CC8EC1000ABC389 /* LaunchScreen.storyboard */,
+				26E314402CC8EC1000ABC389 /* Info.plist */,
+				26E314412CC8EC1000ABC389 /* main.m */,
+			);
+			path = AgoraRTT_Demo_Machine;
+			sourceTree = "<group>";
+		};
 		2A464A77CFA7D591A715EA76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +285,7 @@
 			children = (
 				B72D488D2828E37A0035802D /* AgoraRTT_Demo */,
 				260893DA2C252EA8004A8D1A /* AgoraRTT_DemoTests */,
+				26E3142E2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine */,
 				B72D488C2828E37A0035802D /* Products */,
 				16DA392FBA24044E817DC100 /* Pods */,
 				2A464A77CFA7D591A715EA76 /* Frameworks */,
@@ -252,6 +297,7 @@
 			children = (
 				B72D488B2828E37A0035802D /* AgoraRTT_Demo.app */,
 				260893D92C252EA8004A8D1A /* AgoraRTT_DemoTests.xctest */,
+				26E3142D2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,6 +355,23 @@
 			productReference = 260893D92C252EA8004A8D1A /* AgoraRTT_DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		26E3142C2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26E314452CC8EC1000ABC389 /* Build configuration list for PBXNativeTarget "AgoraRTT_Demo_Machine" */;
+			buildPhases = (
+				26E314292CC8EC0E00ABC389 /* Sources */,
+				26E3142A2CC8EC0E00ABC389 /* Frameworks */,
+				26E3142B2CC8EC0E00ABC389 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AgoraRTT_Demo_Machine;
+			productName = AgoraRTT_Demo_Machine;
+			productReference = 26E3142D2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B72D488A2828E37A0035802D /* AgoraRTT_Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B72D489F2828E37C0035802D /* Build configuration list for PBXNativeTarget "AgoraRTT_Demo" */;
@@ -342,6 +405,9 @@
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = B72D488A2828E37A0035802D;
 					};
+					26E3142C2CC8EC0E00ABC389 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					B72D488A2828E37A0035802D = {
 						CreatedOnToolsVersion = 13.3.1;
 						LastSwiftMigration = 1430;
@@ -366,6 +432,7 @@
 			targets = (
 				B72D488A2828E37A0035802D /* AgoraRTT_Demo */,
 				260893D82C252EA8004A8D1A /* AgoraRTT_DemoTests */,
+				26E3142C2CC8EC0E00ABC389 /* AgoraRTT_Demo_Machine */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +442,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26E3142B2CC8EC0E00ABC389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26E3143F2CC8EC1000ABC389 /* LaunchScreen.storyboard in Resources */,
+				26E3143C2CC8EC1000ABC389 /* Assets.xcassets in Resources */,
+				26E3143A2CC8EC0E00ABC389 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +573,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26E314292CC8EC0E00ABC389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26E314372CC8EC0E00ABC389 /* ViewController.m in Sources */,
+				26E314312CC8EC0E00ABC389 /* AppDelegate.m in Sources */,
+				26E314422CC8EC1000ABC389 /* main.m in Sources */,
+				26E314342CC8EC0E00ABC389 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B72D48872828E37A0035802D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,6 +624,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		26E314382CC8EC0E00ABC389 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26E314392CC8EC0E00ABC389 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26E3143D2CC8EC1000ABC389 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26E3143E2CC8EC1000ABC389 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		B72D48992828E37C0035802D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -598,6 +702,64 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AgoraRTT_Demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AgoraRTT_Demo";
+			};
+			name = Release;
+		};
+		26E314432CC8EC1000ABC389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YS397FG5PA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AgoraRTT_Demo_Machine/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Agora.AgoraRTT-Demo-Machine";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26E314442CC8EC1000ABC389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YS397FG5PA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AgoraRTT_Demo_Machine/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Agora.AgoraRTT-Demo-Machine";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -796,6 +958,15 @@
 			buildConfigurations = (
 				260893E02C252EA8004A8D1A /* Debug */,
 				260893E12C252EA8004A8D1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26E314452CC8EC1000ABC389 /* Build configuration list for PBXNativeTarget "AgoraRTT_Demo_Machine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26E314432CC8EC1000ABC389 /* Debug */,
+				26E314442CC8EC1000ABC389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

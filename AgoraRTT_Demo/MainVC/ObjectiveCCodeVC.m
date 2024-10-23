@@ -12,6 +12,7 @@
 
 @interface ObjectiveCCodeVC ()<TranscriptSubtitleMachineDelegate>
 @property (nonatomic, strong) TranscriptSubtitleView *transcriptSubtitleView;
+@property (nonatomic, strong) TranscriptSubtitleMachine *machine;
 @property (nonatomic, strong) AgoraComponetLog *logger;
 @end
 
@@ -47,6 +48,9 @@
 //    NSString *allTranscriptText = [_transcriptSubtitleView getAllTranscriptText];
 //    NSString *allTranslateText = [_transcriptSubtitleView getAllTranslateText];
     
+    AgoraComponetConsoleLogger *fileLogger = [[AgoraComponetConsoleLogger alloc] initWithDomainName:@"ATS"];
+    _machine = [[TranscriptSubtitleMachine alloc] initWithLoggers:@[fileLogger]];
+    _machine.delegate = self;
 }
 
 - (void)transcriptSubtitleMachine:(TranscriptSubtitleMachine * _Nonnull)machine didAddRenderInfo:(RenderInfo * _Nonnull)renderInfo {
