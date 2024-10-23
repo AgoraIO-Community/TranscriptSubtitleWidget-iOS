@@ -127,4 +127,8 @@ extension SttText {
     var splitToTranscriptWords: [TranscriptWord] {
         words.splitToTranscriptWords
     }
+    
+    var allTrans: String {
+        translateWords.map({ $0.text }).joined()
+    }
 }

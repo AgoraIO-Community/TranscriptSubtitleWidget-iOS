@@ -61,11 +61,6 @@ public final class TranscriptSubtitleMachine: NSObject {
             Log.debug(text: "deserialize:\(message.jsonString)", tag: logTag)
         }
         
-        if message.allWords.isEmpty {
-            Log.errorText(text: "words is empty: \(message.jsonString)", tag: logTag)
-            return
-        }
-        
         _handleMessage(message: message, uid: message.uid)
     }
 }
