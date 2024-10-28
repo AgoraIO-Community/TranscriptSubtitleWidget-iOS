@@ -8,7 +8,7 @@
 import Foundation
 
 extension TranscriptSubtitleMachine {
-    func convertToRenderInfo(info: Info, useTranscriptText: Bool) -> RenderInfo {
+    func convertToRenderInfo(uid: UidType, info: Info, useTranscriptText: Bool) -> RenderInfo {
         let transcriptString = useTranscriptText ? info.transcriptInfo.words.allText : ""
         var index = 0
         var transcriptRanges = [SegmentRangeInfo]()
@@ -39,10 +39,10 @@ extension TranscriptSubtitleMachine {
             translateRenderInfos.append(translateRenderInfo)
         }
         
-        return RenderInfo(identifier: info.transcriptInfo.startMs,
-            transcriptText: transcriptString,
-                                      transcriptRanges: transcriptRanges,
-                                      translateRenderInfos: translateRenderInfos)
+        return RenderInfo(uid: uid, identifier: info.transcriptInfo.startMs,
+                          transcriptText: transcriptString,
+                          transcriptRanges: transcriptRanges,
+                          translateRenderInfos: translateRenderInfos)
     }
     
     func updateTranslateInfo_Pre(info: Info,
@@ -128,7 +128,7 @@ extension TranscriptSubtitleMachine {
     }
     
     static func searchLastTranscriptMergeInfos(infos: [Info]) -> [Info] {
-        var allReversedInfos = infos.reversed()
+        let allReversedInfos = infos.reversed()
         var willMergeInfos = [Info]()
         
         for (index, info) in allReversedInfos.enumerated() {

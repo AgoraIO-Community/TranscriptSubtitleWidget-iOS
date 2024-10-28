@@ -14,7 +14,7 @@ class FileReader {
         let string = String(data: data, encoding: .utf8)!
         
         let datas = string.split(separator: "\n")
-        let separator = "[Machine]: data:"
+        let separator = "data:"
         if datas.count > 2 {
             return datas
                 .map({ String($0) })

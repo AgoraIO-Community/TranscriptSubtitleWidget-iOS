@@ -167,6 +167,9 @@ extension MessageView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MessageCell
         let item = items[indexPath.row]
         let attributedText = makeAttributedText(item: item)
+        if attributedText.length == 0 {
+            print("")
+        }
         cell.label.font = textFont
         cell.label.attributedText = attributedText
         cell.bgView.backgroundColor = textAreaBackgroundColor

@@ -152,7 +152,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         currentSettingIndexPatn = indexPath
         if indexPath.section == 0, indexPath.row == 0 {
             let vc = LanguageSelectedVC()
-            vc.isMutiSelect = false
+            vc.isMutiSelect = true
             vc.delegate = self
             present(vc, animated: true)
         }

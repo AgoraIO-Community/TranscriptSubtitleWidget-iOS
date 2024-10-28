@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias UidType = UInt
+typealias UidType = Int64
 enum MessageType: UInt8 {
     case transcribe = 0
     case translate = 1
@@ -60,7 +60,9 @@ class TranslateWord {
     }
 }
 
-class Info {
+@objcMembers
+@objc(Info)
+public class Info: NSObject {
     var transcriptInfo: TranscriptInfo
     var translateInfos: [TranslateInfo]
     
@@ -86,17 +88,21 @@ class TranslateInfo {
     var startMs: Int64 = 0
     var words = [TranslateWord]()
 }
-
-class RenderInfo {
-    let identifier: Int64
-    let transcriptText: String
-    let transcriptRanges: [SegmentRangeInfo]
-    let translateRenderInfos: [TranslateRenderInfo]
+@objcMembers
+@objc(RenderInfo)
+public class RenderInfo: NSObject {
+    public let uid: Int64
+    public let identifier: Int64
+    public let transcriptText: String
+    public let transcriptRanges: [SegmentRangeInfo]
+    public let translateRenderInfos: [TranslateRenderInfo]
     
-    init(identifier: Int64,
+    init(uid: Int64,
+         identifier: Int64,
          transcriptText: String,
          transcriptRanges: [SegmentRangeInfo],
          translateRenderInfos: [TranslateRenderInfo]) {
+        self.uid = uid
         self.identifier = identifier
         self.transcriptText = transcriptText
         self.transcriptRanges = transcriptRanges
@@ -104,15 +110,30 @@ class RenderInfo {
     }
 }
 
-struct SegmentRangeInfo {
+@objcMembers
+@objc(SegmentRangeInfo)
+public class SegmentRangeInfo: NSObject {
     let range: NSRange
     let isFinal: Bool
+    
+    init(range: NSRange, isFinal: Bool) {
+        self.range = range
+        self.isFinal = isFinal
+    }
 }
 
-struct TranslateRenderInfo {
-    let lang: String
-    let text: String
-    let ranges: [SegmentRangeInfo]
+@objcMembers
+@objc(TranslateRenderInfo)
+public class TranslateRenderInfo: NSObject {
+    public let lang: String
+    public let text: String
+    public let ranges: [SegmentRangeInfo]
+    
+    init(lang: String, text: String, ranges: [SegmentRangeInfo]) {
+        self.lang = lang
+        self.text = text
+        self.ranges = ranges
+    }
 }
 
 extension Array where Element == TranscriptWord {

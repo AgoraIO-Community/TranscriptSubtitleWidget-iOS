@@ -8,7 +8,7 @@
 import Foundation
 
 extension TranscriptSubtitleMachine {
-    func _handleTranscriptPreProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
+    func _handleTranscriptPreProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UidType) {
         let words = message.splitToTranscriptWords
         
         if let lastOne = infoCache.getLastInfo(uid: uid), !lastOne.transcriptInfo.words.isFinal { /** append */
@@ -17,7 +17,9 @@ extension TranscriptSubtitleMachine {
             lastOne.transcriptInfo.textTs = message.textTs
             lastOne.transcriptInfo.sentenceEndIndex = message.sentenceEndIndex
             if debugParam.useFinalTagAsParagraphDistinction {
-                let renderInfo = convertToRenderInfo(info: lastOne, useTranscriptText: showTranscriptContent)
+                let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                     info: lastOne,
+                                                     useTranscriptText: showTranscriptContent)
                 invokeUpdate(self, renderInfo: renderInfo)
             }
         }
@@ -31,13 +33,15 @@ extension TranscriptSubtitleMachine {
             let info = Info(transcriptInfo: transcriptInfo, translateInfos: [])
             infoCache.addInfo(uid: uid, info: info)
             if debugParam.useFinalTagAsParagraphDistinction {
-                let renderInfo = convertToRenderInfo(info: info, useTranscriptText: showTranscriptContent)
+                let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                     info: info,
+                                                     useTranscriptText: showTranscriptContent)
                 invokeAdd(self, renderInfo: renderInfo)
             }
         }
     }
     
-    func _handleTranlatePreProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UInt) {
+    func _handleTranlatePreProcess(message: ProtobufDeserializer.DataStreamMessage, uid: UidType) {
         let translateWords = message.translateWords
         if let lastOne = infoCache.getLast(uid: uid, with: message.textTs) { /** append */
             updateTranslateInfo_Pre(info: lastOne,
@@ -45,22 +49,14 @@ extension TranscriptSubtitleMachine {
                                     duration: message.durationMs,
                                     textTs: message.textTs)
             if debugParam.useFinalTagAsParagraphDistinction {
-                let renderInfo = convertToRenderInfo(info: lastOne, useTranscriptText: showTranscriptContent)
+                let renderInfo = convertToRenderInfo(uid: message.uid,
+                                                     info: lastOne,
+                                                     useTranscriptText: showTranscriptContent)
                 invokeUpdate(self, renderInfo: renderInfo)
             }
             return
         }
         
-        Log.warning(text: "get a tarnslate message but no transcript message before it.", tag: logTag)
-        let translateRenderInfo = TranslateInfo()
-        translateRenderInfo.startMs = message.textTs
-        translateRenderInfo.words = translateWords
-        let info = Info(transcriptInfo: .init(), translateInfos: [translateRenderInfo])
-        infoCache.addInfo(uid: uid, info: info)
-        
-        if debugParam.useFinalTagAsParagraphDistinction {
-            let renderInfo = convertToRenderInfo(info: info, useTranscriptText: showTranscriptContent)
-            invokeAdd(self, renderInfo:renderInfo)
-        }
+        Log.errorText(text: "get a tarnslate message but no transcript message before it. textTs:\(message.textTs) content:\(message.debug_translateBeautyString)", tag: logTag)
     }
 }

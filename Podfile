@@ -6,13 +6,24 @@ target 'AgoraRTT_Demo' do
   use_frameworks!
   
   pod 'AgoraRtcEngine_iOS', '4.2.6'
-  pod "Protobuf", "3.21.12"
+  pod "Protobuf", "3.28.2"
   pod 'SVProgressHUD'
   pod 'AgoraComponetLog', '~> 0.0.3'
   pod 'URLRequest-cURL'
-  pod 'AgoraLyricsScore', '2.1.0-alpha-5'
   pod 'AgoraTranscriptSubtitle', :path => './AgoraTranscriptSubtitle.podspec', :testspecs => ['Tests']
 end
+
+#target 'AgoraRTT_Demo_Machine' do
+#
+#  use_frameworks!
+#
+#  pod 'AgoraRtcEngine_iOS', '4.2.6'
+#  pod "Protobuf", "3.28.2"
+#  pod 'SVProgressHUD'
+#  pod 'AgoraComponetLog', '~> 0.0.3'
+#  pod 'URLRequest-cURL'
+#  pod 'AgoraTranscriptSubtitle/Machine', :path => './AgoraTranscriptSubtitle.podspec', :testspecs => ['Tests']
+#end
 
 target 'AgoraRTT_DemoTests' do
   use_frameworks!
