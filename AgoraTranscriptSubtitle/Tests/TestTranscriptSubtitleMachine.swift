@@ -32,7 +32,7 @@ final class TestTranscriptSubtitleMachine: XCTestCase, TranscriptSubtitleMachine
         DispatchQueue.global().async {
             let datas = DataStreamFileFetch.fetch(fileName: "dataStreamResults4.txt")
             for (_, data) in datas.enumerated() {
-                self.transcriptSubtitleMachine.pushMessageData(data: data, uid: 0)
+                self.transcriptSubtitleMachine.pushMessageData(data: data)
                 Thread.sleep(forTimeInterval: 0.35)
             }
         }

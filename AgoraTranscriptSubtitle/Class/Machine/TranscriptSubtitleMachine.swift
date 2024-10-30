@@ -32,12 +32,12 @@ public final class TranscriptSubtitleMachine: NSObject {
         super.init()
     }
     
-    @objc public func pushMessageData(data: Data, uid: UInt) {
+    @objc public func pushMessageData(data: Data) {
         queue.async { [weak self] in
             guard let self = self else {
                 return
             }
-            self._pushMessageData(data: data, uid: uid)
+            self._pushMessageData(data: data)
         }
     }
     
@@ -47,7 +47,7 @@ public final class TranscriptSubtitleMachine: NSObject {
     }
     
     // MARK: - private
-    private func _pushMessageData(data: Data, uid: UInt) {
+    private func _pushMessageData(data: Data) {
         if debugParam.dump_input {
             Log.debug(text: "data:\(data.base64EncodedString())", tag: logTag)
         }

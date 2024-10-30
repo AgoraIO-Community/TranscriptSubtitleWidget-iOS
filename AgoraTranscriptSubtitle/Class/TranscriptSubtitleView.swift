@@ -59,7 +59,7 @@ import AgoraComponetLog
     /// - Parameter data: The raw data packet containing the message, received from RTC data Stream.
     /// - Parameter uid: The unique identifier of the user who generated this data, used for attribution and processing purposes.
     @objc public func pushMessageData(data: Data, uid: UInt) {
-        transcriptSubtitleMachine.pushMessageData(data: data, uid: uid)
+        transcriptSubtitleMachine.pushMessageData(data: data)
     }
     
     /// Clears all data, leaving the view in an empty state.

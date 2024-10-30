@@ -30,7 +30,7 @@ final class TestTranscriptSubtitleMachine3: XCTestCase, TranscriptSubtitleMachin
     func testExample() throws {
         let datas = DataStreamFileFetch.fetch(fileName: "dataStreamResults11.txt")
         for (_, data) in datas.enumerated() {
-            transcriptSubtitleMachine.pushMessageData(data: data, uid: 0)
+            transcriptSubtitleMachine.pushMessageData(data: data)
         }
         
         wait(for: [exp1, exp2, exp3, exp4], timeout: 10)
