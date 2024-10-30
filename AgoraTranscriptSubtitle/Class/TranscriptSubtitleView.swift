@@ -11,7 +11,7 @@ import AgoraComponetLog
 /// The view for displaying transcript and translation subtitles.
 @objc public class TranscriptSubtitleView: UIView {
     private let messageView = MessageView()
-    private let transcriptSubtitleMachine = TranscriptSubtitleMachine()
+    private var transcriptSubtitleMachine: TranscriptSubtitleMachine!
     private let logTag = "TranscriptSubtitleView"
     
     /// The color of text when the recognition state is final.
@@ -34,8 +34,10 @@ import AgoraComponetLog
     /// - Parameter loggers: The loggers used to log the debug information.
     /// - Returns: An initialized view object.
     @objc public convenience init(frame: CGRect, loggers: [AgoraComponetLogger] = [AgoraComponetConsoleLogger(domainName: "ATS"), AgoraComponetFileLogger(logFilePath: nil, filePrefixName: "agora.AgoraTranscriptSubtitle", maxFileSizeOfBytes: 1024 * 1024 * 1, maxFileCount: 4, domainName: "ATS", internalLogSaveInFile: true)]) {
-        Log.setLoggers(loggers: loggers)
         self.init(frame: frame)
+        transcriptSubtitleMachine = TranscriptSubtitleMachine(loggers: loggers)
+        transcriptSubtitleMachine.delegate = self
+        Log.info(text: "TranscriptSubtitleView init", tag: logTag)
     }
     
     @available(*, unavailable)
@@ -47,7 +49,6 @@ import AgoraComponetLog
         super.init(frame: frame)
         Log.debug(text: "version \(String.versionName)", tag: logTag)
         setupUI()
-        commonInit()
     }
     
     deinit {
@@ -58,7 +59,7 @@ import AgoraComponetLog
     /// - Parameter data: The raw data packet containing the message, received from RTC data Stream.
     /// - Parameter uid: The unique identifier of the user who generated this data, used for attribution and processing purposes.
     @objc public func pushMessageData(data: Data, uid: UInt) {
-        transcriptSubtitleMachine.pushMessageData(data: data, uid: uid)
+        transcriptSubtitleMachine.pushMessageData(data: data)
     }
     
     /// Clears all data, leaving the view in an empty state.
@@ -86,10 +87,6 @@ import AgoraComponetLog
         messageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         messageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         messageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-    }
-    
-    private func commonInit() {
-        transcriptSubtitleMachine.delegate = self
     }
     
     private func updateDebugParam() {
@@ -128,11 +125,11 @@ import AgoraComponetLog
 
 // MARK: - TranscriptSubtitleMachineDelegate
 extension TranscriptSubtitleView: TranscriptSubtitleMachineDelegate {
-    func transcriptSubtitleMachine(_ machine: TranscriptSubtitleMachine, didAddRenderInfo renderInfo: RenderInfo) {
+    public func transcriptSubtitleMachine(_ machine: TranscriptSubtitleMachine, didAddRenderInfo renderInfo: RenderInfo) {
         messageView.addOrUpdate(renderInfo: renderInfo)
     }
     
-    func transcriptSubtitleMachine(_ machine: TranscriptSubtitleMachine, didUpadteRenderInfo renderInfo: RenderInfo) {
+    public func transcriptSubtitleMachine(_ machine: TranscriptSubtitleMachine, didUpadteRenderInfo renderInfo: RenderInfo) {
         messageView.addOrUpdate(renderInfo: renderInfo)
     }
 }

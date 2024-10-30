@@ -7,16 +7,15 @@
 
 import XCTest
 @testable import AgoraTranscriptSubtitle
-
+import AgoraComponetLog
 final class TestTranscriptSubtitleMachine: XCTestCase, TranscriptSubtitleMachineDelegate, DebugMachineIntermediateDelegate {
     
-    let transcriptSubtitleMachine = TranscriptSubtitleMachine()
+    let transcriptSubtitleMachine = TranscriptSubtitleMachine(loggers: [AgoraComponetConsoleLogger(domainName: "ATS")])
     let exp = XCTestExpectation()
     let exp2 = XCTestExpectation()
     let exp3 = XCTestExpectation()
     
     override func setUpWithError() throws {
-        Log.setLoggers(loggers: [FileLogger(), ConsoleLogger()])
         transcriptSubtitleMachine.delegate = self
         transcriptSubtitleMachine.debug_intermediateDelegate = self
         transcriptSubtitleMachine.debugParam = .init(dump_input: true,
@@ -33,7 +32,7 @@ final class TestTranscriptSubtitleMachine: XCTestCase, TranscriptSubtitleMachine
         DispatchQueue.global().async {
             let datas = DataStreamFileFetch.fetch(fileName: "dataStreamResults4.txt")
             for (_, data) in datas.enumerated() {
-                self.transcriptSubtitleMachine.pushMessageData(data: data, uid: 0)
+                self.transcriptSubtitleMachine.pushMessageData(data: data)
                 Thread.sleep(forTimeInterval: 0.35)
             }
         }

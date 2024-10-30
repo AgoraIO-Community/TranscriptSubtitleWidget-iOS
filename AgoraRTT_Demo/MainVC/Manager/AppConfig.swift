@@ -67,12 +67,14 @@ class AppConfig {
             let testPort = dict["testPort"] as! UInt
             let appId = dict["appId"] as! String
             let auth = dict["auth"] as? String
+            let useFinalTagAsParagraphDistinction = (dict["useFinalTagAsParagraphDistinction"] as? Bool) ?? false
             serverEnv = ServerEnv(name: name,
                                   serverUrlString: serverUrlString,
                                   testIp: testIp,
                                   testPort: testPort,
                                   appId: appId,
-                                  auth: auth)
+                                  auth: auth,
+                                  useFinalTagAsParagraphDistinction: useFinalTagAsParagraphDistinction)
             return
         }
         
@@ -88,19 +90,22 @@ class ServerEnv: Codable {
     var testPort: UInt
     var appId: String
     var auth: String?
+    var useFinalTagAsParagraphDistinction: Bool
     
     init(name: String,
          serverUrlString: String,
          testIp: String,
          testPort: UInt,
          appId: String,
-         auth: String?) {
+         auth: String?,
+         useFinalTagAsParagraphDistinction: Bool) {
         self.name = name
         self.serverUrlString = serverUrlString
         self.testIp = testIp
         self.testPort = testPort
         self.appId = appId
         self.auth = auth
+        self.useFinalTagAsParagraphDistinction = useFinalTagAsParagraphDistinction
     }
     
     func copyThis() -> ServerEnv {
@@ -109,6 +114,7 @@ class ServerEnv: Codable {
                          testIp: testIp,
                          testPort: testPort,
                          appId: appId,
-                         auth: auth)
+                         auth: auth,
+                         useFinalTagAsParagraphDistinction: useFinalTagAsParagraphDistinction)
     }
 }

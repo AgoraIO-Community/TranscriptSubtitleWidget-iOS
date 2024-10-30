@@ -9,7 +9,7 @@ import AgoraComponetLog
 import UIKit
 
 class Log {
-    static let provider = AgoraComponetLog(queueTag: "")
+    static let provider = AgoraComponetLog(queueTag: "agora.AgoraTranscriptSubtitle")
     
     static func errorText(text: String,
                           tag: String? = nil) {
