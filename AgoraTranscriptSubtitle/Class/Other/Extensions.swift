@@ -49,7 +49,7 @@ extension ProtobufDeserializer.DataStreamMessage {
     
     var debug_transcriptBeautyString: String {
         return """
-        {"text" : \(words.first?.text ?? "nil"), "startMs" : \(words.first?.startMs ?? 0), "durationMs" : \(words.first?.durationMs ?? 0), "isFinal" : \(words.first?.isFinal ?? false), "sentenceEndIndex" : \(sentenceEndIndex)} wordsArray_Count:\(wordsArray_Count) textTs:\(textTs) endOfSegment:\(endOfSegment)
+        {"text" : \(words.first?.text ?? "nil"), starttime:\(starttime) "startMs" : \(words.first?.startMs ?? 0), "durationMs" : \(words.first?.durationMs ?? 0), "isFinal" : \(words.first?.isFinal ?? false), "sentenceEndIndex" : \(sentenceEndIndex)} wordsArray_Count:\(wordsArray_Count) textTs:\(textTs) endOfSegment:\(endOfSegment) uid:\(uid)
 """
     }
     

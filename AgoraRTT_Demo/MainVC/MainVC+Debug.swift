@@ -16,7 +16,7 @@ extension MainVC {
                     self.mainView.rttView.pushMessageData(data: data, uid: 0)
                     SVProgressHUD.showInfo(withStatus: "\(index)")
                 }
-                Thread.sleep(forTimeInterval: 0.35)
+//                Thread.sleep(forTimeInterval: 0.35)
             }
         }
     }

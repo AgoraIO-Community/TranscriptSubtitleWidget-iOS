@@ -34,7 +34,7 @@ class HttpClient: NSObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let auth = auth {
-            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+            request.setValue("\(auth)", forHTTPHeaderField: "Authorization")
         }
         request.timeoutInterval = timeoutInterval
         
@@ -101,7 +101,7 @@ class HttpClient: NSObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let auth = auth {
-            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+            request.setValue("\(auth)", forHTTPHeaderField: "Authorization")
         }
         request.timeoutInterval = timeoutInterval
         Log.debug(text: "\(request.cURL)", tag: "curl")
@@ -143,7 +143,7 @@ class HttpClient: NSObject {
         request.httpMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let auth = auth {
-            request.setValue("agora token=\"\(auth)\"", forHTTPHeaderField: "Authorization")
+            request.setValue("\(auth)", forHTTPHeaderField: "Authorization")
         }
         request.timeoutInterval = timeoutInterval
         
